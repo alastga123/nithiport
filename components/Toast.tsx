@@ -10,7 +10,7 @@ export default function Toast({ show, message }: { show: boolean; message: strin
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-lime px-4 py-2 text-sm font-bold text-black"
+          className="toast-pill fixed bottom-24 left-1/2 w-fit -translate-x-1/2 whitespace-nowrap bg-lime px-8 py-2 text-sm font-medium rounded-full text-black"
         >
           {message}
         </motion.div>

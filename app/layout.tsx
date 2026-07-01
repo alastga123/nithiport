@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
-import "./globals.css";
+import { Poppins } from "next/font/google";
+
+import "@/app/globals.css";
+
 import Navbar from "@/components/Navbar";
 import PageTransition from "@/components/PageTransition";
 
-const spaceGrotesk = Space_Grotesk({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-space-grotesk",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -22,8 +19,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${inter.variable} font-body bg-bg text-body`}>
+    <html lang="en" className="font-sans">
+      <body className={`${poppins.variable} font-body bg-bg text-body`}>
         <Navbar />
         <PageTransition>{children}</PageTransition>
       </body>

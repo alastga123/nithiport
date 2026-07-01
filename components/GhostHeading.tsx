@@ -9,8 +9,15 @@ export default function GhostHeading({
 }) {
   return (
     <div className={`relative font-display font-bold uppercase leading-none ${className}`}>
-      <span className="block text-ghost select-none">{ghost}</span>
-      <span className="absolute left-1 top-1 text-lime">{front}</span>
+      {/* em-relative offset so it scales with the ghost text's own clamped font-size
+        instead of staying fixed while the text shrinks. */}
+      <span className="absolute -left-1 -top-[0.45em] block whitespace-nowrap text-ghost select-none -z-10">
+        {ghost}
+      </span>
+      
+      <span className="relative block text-lime z-10">
+        {front}
+      </span>
     </div>
   );
 }
