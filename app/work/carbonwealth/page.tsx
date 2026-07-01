@@ -2,11 +2,9 @@ import Container from "@/components/Container";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import SectionOnboarding from "@/components/sections/SectionOnboarding";
 import SectionHeader from "@/components/sections/SectionHeader";
-import SectionParagraph from "@/components/sections/SectionParagraph";
 import SectionImageShowcase from "@/components/sections/SectionImageShowcase";
 import SectionOutcome from "@/components/sections/SectionOutcome";
 import BannerImage from "next/image";
-import SectionDisplaytext from "@/components/sections/SectionDisplaytext";
 import ContactSection from "@/components/ContactSection";
 
 export default function ProjectDetailPage() {
