@@ -4,7 +4,6 @@ import { Poppins } from "next/font/google";
 import "@/app/globals.css";
 
 import Navbar from "@/components/Navbar";
-import PageTransition from "@/components/PageTransition";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="font-sans">
       <body className={`${poppins.variable} font-body bg-bg text-body`}>
         <Navbar />
-        <PageTransition>{children}</PageTransition>
+        {children}
       </body>
     </html>
   );
