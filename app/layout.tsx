@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 
 import "@/app/globals.css";
 
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
 
 const poppins = Poppins({
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${poppins.variable} font-body bg-bg text-body`}>
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
