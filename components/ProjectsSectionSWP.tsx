@@ -27,11 +27,10 @@ function ProjectCard({ p, index }: { p: (typeof projects)[number]; index: number
 
   return (
     <motion.div
-      className={`card-fluid ${hasHover ? "group" : ""}`}
+      className={`card-fluid ${hasHover ? "group/card" : ""}`}
       onClick={() => router.push(`/work/${p.slug}`)}
+      animate={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: .4, delay: index * 0.08 }}
     >
       <div className="relative w-full aspect-square overflow-visible">
@@ -44,26 +43,26 @@ function ProjectCard({ p, index }: { p: (typeof projects)[number]; index: number
               className="object-cover pointer-events-none rounded-2xl"
               draggable={false}
             />
-            <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 group-hover:opacity-70 pointer-events-none" />
+            <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 group-hover/card:opacity-70 pointer-events-none" />
           </div>
         </CometCard>
 
-        <div className="absolute inset-0 z-30 p-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <div className="absolute inset-0 z-[100] p-10 pointer-events-none opacity-0 group-hover/card:opacity-100 transition-all duration-300">
           <div className="w-full h-full flex flex-col items-center justify-center gap-0">
             <span
-              className="text-white text-[20px] font-thin tracking-normal text-center scale-90 group-hover:scale-100 transition-transform duration-300 font-poppins -mb-3"
+              className="text-white text-[20px] font-thin tracking-normal text-center scale-90 group-hover/card:scale-100 transition-transform duration-300 font-poppins -mb-3"
               style={{ filter: "drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6))" }}
             >
               {p.year}
             </span>
             <span
-              className="text-white text-[42px] font-semibold tracking-normal whitespace-nowrap text-center uppercase scale-90 group-hover:scale-100 transition-transform duration-300 font-poppins"
+              className="text-white text-[42px] font-semibold tracking-normal whitespace-nowrap text-center uppercase scale-90 group-hover/card:scale-100 transition-transform duration-300 font-poppins"
               style={{ filter: "drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6))" }}
             >
               {p.title}
             </span>
             <span
-              className="text-white text-[20px] font-thin tracking-normal text-center scale-90 group-hover:scale-100 transition-transform duration-300 font-poppins"
+              className="text-white text-[20px] font-thin tracking-normal text-center scale-90 group-hover/card:scale-100 transition-transform duration-300 font-poppins"
               style={{ filter: "drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6))" }}
             >
               {p.description}
@@ -72,7 +71,7 @@ function ProjectCard({ p, index }: { p: (typeof projects)[number]; index: number
 
           <div className="absolute -bottom-8 -right-8">
             <Image
-              className="scale-90 group-hover:scale-100 transition-transform duration-300"
+              className="scale-90 group-hover/card:scale-100 transition-transform duration-300"
               src="/ArrowRight.svg"
               alt="Arrow Icon"
               width={90}
@@ -113,7 +112,7 @@ export default function ProjectsSectionSWP() {
             slidesPerView="auto"
             slidesPerGroup={1}
             breakpoints={{ 768: { spaceBetween: 40 } }}
-            spaceBetween={8}
+            spaceBetween={16}
             keyboard={{ enabled: true }}
             resistanceRatio={0.4}
             touchAngle={30}
