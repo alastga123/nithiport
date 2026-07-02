@@ -38,7 +38,7 @@ export default function ContactSection({ compact = false }: { compact?: boolean 
         transition={{ duration: 0.6 }}
       >
       <Container>
-        <GhostHeading ghost="HERE IS MY CONTACT" front="LET'S CHAT" className="text-[clamp(32px,7vw,80px)]" />
+        <GhostHeading ghost="CONTACTS" front="LET'S CHAT" className="text-[clamp(32px,7vw,80px)]" />
 
         <div className="mt-10 flex flex-col gap-3 text-lg">
           <button
