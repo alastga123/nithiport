@@ -27,7 +27,7 @@ function ProjectCard({ p, index }: { p: (typeof projects)[number]; index: number
 
   return (
     <motion.div
-      className="card-fluid group"
+      className={`card-fluid ${hasHover ? "group" : ""}`}
       onClick={() => router.push(`/work/${p.slug}`)}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -112,7 +112,8 @@ export default function ProjectsSectionSWP() {
             modules={[Keyboard]}
             slidesPerView="auto"
             slidesPerGroup={1}
-            spaceBetween={40}
+            breakpoints={{ 768: { spaceBetween: 40 } }}
+            spaceBetween={8}
             keyboard={{ enabled: true }}
             resistanceRatio={0.4}
             touchAngle={30}
