@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Container from "@/components/Container";
@@ -58,6 +58,7 @@ function NavLink({
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [showToast, setShowToast] = useState(false);
@@ -83,11 +84,15 @@ export default function Navbar() {
   }, [pathname]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    if (pathname === "/" && (id === "home" || id === "work")) {
-      e.preventDefault();
-      setOpen(false);
+    if (id !== "home" && id !== "work") return;
+    e.preventDefault();
+    setOpen(false);
+    if (pathname === "/") {
       setActiveSection(id);
       window.dispatchEvent(new CustomEvent("swiperNavigate", { detail: id }));
+    } else {
+      sessionStorage.setItem("targetSlide", id);
+      router.push("/");
     }
   };
 

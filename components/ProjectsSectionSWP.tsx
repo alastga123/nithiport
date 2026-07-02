@@ -115,6 +115,7 @@ export default function ProjectsSectionSWP() {
             spaceBetween={40}
             keyboard={{ enabled: true }}
             resistanceRatio={0.4}
+            touchAngle={30}
             className="!overflow-visible w-full"
           >
             {projects.map((p, i) => (

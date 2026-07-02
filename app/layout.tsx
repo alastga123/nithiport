@@ -5,6 +5,7 @@ import "@/app/globals.css";
 
 import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="font-sans">
       <body className={`${poppins.variable} font-body bg-bg text-body`}>
+        <LoadingScreen />
         <Navbar />
         {children}
         <Analytics />

@@ -35,6 +35,7 @@ export default function HeroSection() {
                     alt=""
                     width={32}
                     height={32}
+                    priority
                     className="h-[1em] w-[0.75em] mt-[1.15%]"
                   />
                   ITHIPAT
