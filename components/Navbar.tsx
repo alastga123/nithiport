@@ -101,7 +101,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full bg-bg/90 backdrop-blur-md">
+    <header className={`fixed top-0 left-0 z-50 w-full transition-colors duration-300 ${pathname === "/" ? "bg-transparent" : "bg-bg/90 backdrop-blur-md"}`}>
       <Container className="flex items-center justify-between py-5">
         <Link href="/" aria-label="Home">
           <Image src="/logo.svg" alt="Logo" width={32} height={32} priority />
