@@ -32,7 +32,7 @@ function ProjectCard({ p, index, inView }: { p: (typeof projects)[number]; index
       onClick={() => router.push(`/work/${p.slug}`)}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       initial={{ opacity: 0, y: 24 }}
-      transition={{ duration: .4, delay: 1 + index * .5 }}
+      transition={{ duration: .4, delay: .5 + index * .5 }}
     >
       <div className="relative w-full aspect-square overflow-visible">
         <CometCard className="absolute inset-0 overflow-visible rounded-2xl">
