@@ -10,7 +10,8 @@ import GhostHeading from "@/components/GhostHeading";
 import Container from "@/components/Container";
 import { CometCard } from "@/components/ui/comet-card";
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const projects = [
   { slug: "public-profile", title: "Public Profile", year: "2026", tag: "UX/UI", description: "LivingInsider", image: "/work/publicprofile.png" },
@@ -21,7 +22,7 @@ const projects = [
   { slug: "eventure", title: "Eventure", year: "2023", tag: "UXUI | Case Study", description: "Case Study", image: "/work/eventure.png" },
 ];
 
-function ProjectCard({ p, index }: { p: (typeof projects)[number]; index: number }) {
+function ProjectCard({ p, index, inView }: { p: (typeof projects)[number]; index: number; inView: boolean }) {
   const router = useRouter();
   const hasHover = useHoverDevice();
 
@@ -29,9 +30,9 @@ function ProjectCard({ p, index }: { p: (typeof projects)[number]; index: number
     <motion.div
       className={`card-fluid ${hasHover ? "group/card" : ""}`}
       onClick={() => router.push(`/work/${p.slug}`)}
-      animate={{ opacity: 1, y: 0 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       initial={{ opacity: 0, y: 24 }}
-      transition={{ duration: .4, delay: index * 0.08 }}
+      transition={{ duration: .4, delay: 2.5 + index * .3 }}
     >
       <div className="relative w-full aspect-square overflow-visible">
         <CometCard className="absolute inset-0 overflow-visible rounded-2xl">
@@ -95,8 +96,11 @@ function ProjectCard({ p, index }: { p: (typeof projects)[number]; index: number
 }
 
 export default function ProjectsSectionSWP() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const inView = useInView(sectionRef, { once: true, amount: 0 });
+
   return (
-    <section id="work" className="flex min-h-screen flex-col justify-center snap-start [scroll-snap-stop:always] overflow-hidden">
+    <section ref={sectionRef} id="work" className="flex min-h-screen flex-col justify-center snap-start [scroll-snap-stop:always] overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -120,7 +124,7 @@ export default function ProjectsSectionSWP() {
           >
             {projects.map((p, i) => (
               <SwiperSlide key={p.slug} className="!w-auto">
-                <ProjectCard p={p} index={i} />
+                <ProjectCard p={p} index={i} inView={inView} />
               </SwiperSlide>
             ))}
           </Swiper>
