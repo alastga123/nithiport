@@ -40,9 +40,10 @@ function CompactCard({ p, index, inView }: { p: (typeof projects)[number]; index
   );
 }
 
-export default function ProjectsSectionCompact() {
+export default function ProjectsSectionCompact({ exclude }: { exclude?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, amount: 0 });
+  const filtered = exclude ? projects.filter((p) => p.slug !== exclude) : projects;
 
   return (
     <section ref={sectionRef} className="py-16 overflow-hidden">
@@ -56,7 +57,7 @@ export default function ProjectsSectionCompact() {
           resistanceRatio={0.4}
           className="!overflow-visible w-full"
         >
-          {projects.map((p, i) => (
+          {filtered.map((p, i) => (
             <SwiperSlide key={p.slug} className="!w-auto">
               <CompactCard p={p} index={i} inView={inView} />
             </SwiperSlide>

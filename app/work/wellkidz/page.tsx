@@ -128,7 +128,7 @@ export default function ProjectDetailPage() {
       </div>
     
       <section className="w-full border-t border-[#303030]">
-        <ProjectsSectionCompact />
+        <ProjectsSectionCompact exclude="wellkidz" />
       </section>
       <section id="contact" className="w-full border-t border-[#303030]">
         <ContactSection compact />

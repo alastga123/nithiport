@@ -31,7 +31,7 @@ export default function ProjectDetailPage() {
       </ContainerScroll>
     
       <section className="w-full border-t border-[#303030]">
-        <ProjectsSectionCompact />
+        <ProjectsSectionCompact exclude="design-system" />
       </section>
       <section id="contact" className="w-full border-t border-[#303030]">
         <ContactSection compact />
