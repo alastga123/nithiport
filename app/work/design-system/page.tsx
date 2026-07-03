@@ -3,6 +3,7 @@ import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import SectionOnboarding from "@/components/sections/SectionOnboarding";
 import BannerImage from "next/image";
 import ContactSection from "@/components/ContactSection";
+import ProjectsSectionCompact from "@/components/ProjectsSectionCompact";
 
 export default function ProjectDetailPage() {
  
@@ -29,6 +30,9 @@ export default function ProjectDetailPage() {
         />
       </ContainerScroll>
     
+      <section className="w-full border-t border-[#303030]">
+        <ProjectsSectionCompact />
+      </section>
       <section id="contact" className="w-full border-t border-[#303030]">
         <ContactSection compact />
       </section>

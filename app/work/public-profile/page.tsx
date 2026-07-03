@@ -8,6 +8,7 @@ import SectionOutcome from "@/components/sections/SectionOutcome";
 import BannerImage from "next/image";
 import SectionDisplaytext from "@/components/sections/SectionDisplaytext";
 import ContactSection from "@/components/ContactSection";
+import ProjectsSectionCompact from "@/components/ProjectsSectionCompact";
 
 export default function ProjectDetailPage() {
  
@@ -170,6 +171,9 @@ export default function ProjectDetailPage() {
       />
       </div>
 
+      <section className="w-full border-t border-[#303030]">
+        <ProjectsSectionCompact />
+      </section>
       <section id="contact" className="w-full border-t border-[#303030]">
         <ContactSection compact />
       </section>
