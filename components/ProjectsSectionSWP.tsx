@@ -108,7 +108,7 @@ export default function ProjectsSectionSWP() {
         transition={{ duration: 0.6 }}
       >
       <Container className="overflow-visible relative">
-        <GhostHeading ghost="SELECTED WORKS" front="WORKS" className="text-[clamp(32px,7vw,80px)]" />
+        <GhostHeading ghost="THE SELECTED" front="WORKS" className="text-[clamp(32px,7vw,80px)]" />
 
         <FollowerPointerCard title="Drag!" className="!mt-[24px] !mb-[-10%]">
           <Swiper
