@@ -8,6 +8,8 @@ import "swiper/css";
 import Container from "@/components/Container";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useHoverDevice } from "@/hooks/useHoverDevice";
+import { FollowerPointerCard } from "@/components/ui/following-pointer";
 
 const projects = [
   { slug: "public-profile", title: "Public Profile", year: "2026", description: "LivingInsider", image: "/work/publicprofile.png" },
@@ -20,9 +22,10 @@ const projects = [
 
 function CompactCard({ p, index, inView }: { p: (typeof projects)[number]; index: number; inView: boolean }) {
   const router = useRouter();
+  const hasHover = useHoverDevice();
   return (
     <motion.div
-      className="w-[310px] cursor-pointer"
+      className={hasHover ? "w-[310px] cursor-none" : "w-[310px] cursor-pointer"}
       onClick={() => router.push(`/work/${p.slug}`)}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       initial={{ opacity: 0, y: 24 }}
@@ -48,21 +51,23 @@ export default function ProjectsSectionCompact({ exclude }: { exclude?: string }
   return (
     <section ref={sectionRef} className="py-16 overflow-hidden">
       <Container className="overflow-visible relative">
-        <Swiper
-          modules={[Keyboard]}
-          slidesPerView="auto"
-          slidesPerGroup={1}
-          spaceBetween={16}
-          keyboard={{ enabled: true }}
-          resistanceRatio={0.4}
-          className="!overflow-visible w-full"
-        >
-          {filtered.map((p, i) => (
-            <SwiperSlide key={p.slug} className="!w-auto">
-              <CompactCard p={p} index={i} inView={inView} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <FollowerPointerCard title="Drag!">
+          <Swiper
+            modules={[Keyboard]}
+            slidesPerView="auto"
+            slidesPerGroup={1}
+            spaceBetween={16}
+            keyboard={{ enabled: true }}
+            resistanceRatio={0.4}
+            className="!overflow-visible w-full"
+          >
+            {filtered.map((p, i) => (
+              <SwiperSlide key={p.slug} className="!w-auto">
+                <CompactCard p={p} index={i} inView={inView} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </FollowerPointerCard>
       </Container>
     </section>
   );

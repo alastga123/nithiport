@@ -71,14 +71,14 @@ export default function ProjectDetailPage() {
 
       <SectionParagraph
         lead="Design Constraints"
-        body="A key constraint was designing one flexible template serving two distinct user types: individual agents and corporate agencies. I proposed a shared template rather than two separate systems, reducing long-term maintenance and keeping the credibility signals consistent regardless of agent type. Both share the same profile layout and listing structure, with one difference: corporate profiles include a Team section where member agents can be added or removed, and their listings are aggregated under the company profile. Both profile types require admin verification before going live, a process completed within one business day."
+        body="I proposed a shared template rather than two separate systems, keeping credibility signals consistent across both user types while reducing long-term maintenance cost. Both profile types require admin verification before going live, completed within one business day."
       />
 
       <SectionImageShowcase src="/public-profile/public-profile-table.svg" alt="One credibility system, three touchpoints diagram" />
 
       <SectionParagraph
         lead="Trust Signals Added"
-        body={`The existing profile carried only four elements: name, listings, an about section, and contact details. This was sufficient for an internal directory, but insufficient for a buyer making a trust decision. The Public Profile redesign introduced a full credibility layer: verified badge, rating and follower count, awards and certifications, service areas, specializations, service locations, social links, and a buyer review section. For corporate profiles, agency branding and team composition provide an additional layer of institutional trust.`}
+        body={`The existing profile carried only four elements. The redesign introduced a full credibility layer for both individual agents and corporate agencies, visible to buyers at the point of decision.`}
       />   
    
       <SectionImageShowcase src="/public-profile/public-profile-image1.png" alt="Original Element vs. Redesigned Element" />
@@ -88,7 +88,7 @@ export default function ProjectDetailPage() {
         body={`An earlier draft used visually distinct layouts for individual agents and corporate agencies, which made the difference between the two types immediately clear. In practice, this created real cost: it was harder for development to optimize and maintain two separate systems, and harder for profile owners, especially smaller agencies, to prepare and populate content for a more complex layout. The final design moved to a single shared template, trading some visual differentiation for consistency, faster development, and an easier setup experience for agents.`}
       />   
 
-      <div className="max-w-3xl mx-auto flex flex-col lg:flex-row gap-6">
+      <div className="max-w-4xl mx-auto flex flex-col gap-[-4]">
         <SectionImageShowcase
         src="/public-profile/public-profile-image2.png"
         alt="old profile"
